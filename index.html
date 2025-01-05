@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Winter Theme</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+
+        .info-panel {
+            position: fixed;
+            top: 20px;
+            width: 20vw;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        #fireInfoPanel {
+            right: 20px;
+        }
+
+        #snowmanInfoPanel {
+            left: 20px;
+            background: rgba(0, 0, 50, 0.7);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .panel-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        #fireInfoPanel .panel-title {
+            color: #ff4500;
+        }
+
+        #snowmanInfoPanel .panel-title {
+            color: #00bfff;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .info-row {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .details-btn {
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #fireInfoPanel .details-btn {
+            background: #ff4500;
+        }
+
+        #snowmanInfoPanel .details-btn {
+            background: #00bfff;
+        }
+
+        .details-content {
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .temperature {
+            font-size: 1.5em;
+            color: #ff4500;
+        }
+
+        .highlight {
+            font-size: 1.2em;
+            color: #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <audio id="christmasSong" preload="auto">
+        <source src="/assets/christmas-song.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="fireInfoPanel" class="info-panel">
+        <div class="panel-header">
+            <span class="panel-title">Ateş Bilgileri</span>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="info-row">
+            <span>Sıcaklık:</span>
+            <span class="temperature">742°C</span>
+        </div>
+        <div class="info-row">
+            <span>Yakılma Zamanı:</span>
+            <span class="start-time">19:30</span>
+        </div>
+        <div class="info-row">
+            <span>Yanma Süresi:</span>
+            <span class="burn-duration">45 dakika</span>
+        </div>
+        <button class="details-btn">Daha Fazla Detay</button>
+        <div class="details-content">
+            <div class="info-row">
+                <span>Odun Tipi:</span>
+                <span>Meşe</span>
+            </div>
+            <div class="info-row">
+                <span>Nem Oranı:</span>
+                <span>12%</span>
+            </div>
+            <div class="info-row">
+                <span>Verimlilik:</span>
+                <span>85%</span>
+            </div>
+            <div class="info-row">
+                <span>Kalan Süre:</span>
+                <span class="remaining-time">2 saat</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="snowmanInfoPanel" class="info-panel">
+        <div class="panel-header">
+            <span class="panel-title">Kardan Adam Bilgileri</span>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="info-row">
+            <span>İsim:</span>
+            <span class="highlight">Bay Kartopu</span>
+        </div>
+        <div class="info-row">
+            <span>Yaş:</span>
+            <span class="highlight">1 gün</span>
+        </div>
+        <div class="info-row">
+            <span>Boy:</span>
+            <span>2.1 metre</span>
+        </div>
+        <button class="details-btn">Daha Fazla Detay</button>
+        <div class="details-content">
+            <div class="info-row">
+                <span>Havuç Tipi:</span>
+                <span>Organik Havuç</span>
+            </div>
+            <div class="info-row">
+                <span>Kar Kalitesi:</span>
+                <span>Premium</span>
+            </div>
+            <div class="info-row">
+                <span>Erime Riski:</span>
+                <span class="melting-risk">Düşük</span>
+            </div>
+            <div class="info-row">
+                <span>Ruh Hali:</span>
+                <span class="mood">Neşeli</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html> 
